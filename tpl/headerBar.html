@@ -1,0 +1,17 @@
+<ul class="select-js clearfix" ng-mouseleave="bar = {studentBar : false,teacherBar : false}">
+    <li ng-class="{'active':bar.teacherBar}" ng-show="hoptions.aTeacherNavBar.length > 0" ng-mouseenter="bar = {studentBar : false,teacherBar : true}">
+        <a href="javascript:;"><span><i class="fa fa-angle-down"></i></span>选择教职工</a>
+    </li>
+    <li ng-class="{'active':bar.studentBar}" ng-show="hoptions.aStudentNavBar.length > 0" ng-mouseenter="bar = {studentBar : true,teacherBar : false}">
+        <a href="javascript:;"><span><i class="fa fa-angle-down"></i></span>选择学生</a>
+    </li>
+    <li class="content" ng-show="bar.teacherBar">
+        <button class="btn" ng-repeat="tBar in hoptions.aTeacherNavBar track by $index" ng-class="{'theme':tBar.isSelect,'btn-default':!tBar.isSelect}"
+                ng-click="clickBar(hoptions.aTeacherNavBar,hoptions.aStudentNavBar,tBar)" ng-bind="tBar.barName"></button>
+    </li>
+    <li class="content" ng-show="bar.studentBar">
+        <button class="btn" ng-repeat="tBar in hoptions.aStudentNavBar track by $index" ng-class="{'theme':tBar.isSelect,'btn-default':!tBar.isSelect}"
+                ng-click="clickBar(hoptions.aTeacherNavBar,hoptions.aStudentNavBar,tBar)" ng-bind="tBar.barName"></button>
+    </li>
+    <li class="pull-right"><strong ng-bind="hoptions.activeBar.barName"></strong></li>
+</ul>

@@ -1,0 +1,19 @@
+<div class="gs-selected">
+    <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+            <div class="pull-left">已选({{roptions.selected.length}})</div>
+            <div class="pull-right">
+                <a href="javascript:;" ng-click="removeSelected(null,true)"><i class="fa fa-trash"></i></a>
+            </div>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item clearfix" ng-repeat="item in roptions.selected track by $index">
+                <div class="pull-left">
+                    {{item.name}}{{item.alias && item.alias != item.name ? '('+item.alias+')' : ''}}{{item.userTypeName !== '' ? '('+item.userTypeName+')' : ''}}
+                </div>
+                <div class="pull-right" ng-click="removeSelected($index)"><i class="fa fa-times"></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

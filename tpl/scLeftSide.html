@@ -1,0 +1,103 @@
+<div class="col-fix-7 rightfluid">
+    <div class="form-horizontal">
+        <!--组织机构-->
+        <div class="col-fix-3">
+            <div class="form-group">
+                <yn-ui-select options="selectInfo.treeOption" model="selectInfo.orgNo" select-style="checkBox"></yn-ui-select>
+            </div>
+        </div>
+        <!--层次-->
+        <div class="col-fix-3">
+            <div class="form-group">
+                <select class="form-control"  ng-options="level.id as level.name for level in selectInfo.levels" ng-model="selectInfo.levelId">
+                    <option value="">层次</option>
+                </select>
+            </div>
+        </div>
+        <!--专业-->
+        <div class="col-fix-3">
+            <div class="form-group">
+                <select class="form-control"  ng-options="specialty.id as specialty.name for specialty in selectInfo.specialtys" ng-model="selectInfo.specialtyId">
+                    <option value="">专业</option>
+                </select>
+            </div>
+        </div>
+        <!--年级-->
+        <div class="col-fix-3">
+            <div class="form-group">
+                <select class="form-control"  ng-options="grade.id as grade.name for grade in selectInfo.grades" ng-model="selectInfo.gradeId">
+                    <option value="">年级</option>
+                </select>
+            </div>
+        </div>
+        <!--招生类型-->
+        <div class="col-fix-3">
+            <div class="form-group">
+                <select class="form-control"  ng-options="enrollType.dictCode as enrollType.dictName for enrollType in selectInfo.enrollTypes" ng-model="selectInfo.enrollTypeId">
+                    <option value="">招生类型</option>
+                </select>
+            </div>
+        </div>
+        <!--班级-->
+        <div class="col-fix-3">
+            <div class="form-group">
+                <yn-select class="" theme="multiChoiceSearch" option='{repeat:selectInfo.adminClasss,property:"name",disableSearch:false,defaultPreInfo:"班级"}' model="selectInfo.adminClassIds"></yn-select>
+            </div>
+        </div>
+        <!--性别-->
+        <div class="col-fix-3">
+            <div class="form-group">
+                <select class="form-control" ng-model="selectInfo.gender">
+                    <option value="">性别</option>
+                    <option value="1">男</option>
+                    <option value="2">女</option>
+                </select>
+            </div>
+        </div>
+        <!--是否安排床位-->
+        <!--<div class="col-fix-3">-->
+            <!--<div class="form-group">-->
+                <!--<select class="form-control" ng-model="selectInfo.isOrder">-->
+                    <!--<option value="">是否安排床位</option>-->
+                    <!--<option value="0">是</option>-->
+                    <!--<option value="1">否</option>-->
+                <!--</select>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--楼栋-->
+        <div class="col-fix-3">
+            <div class="form-group">
+                <select class="form-control"  ng-options="build.id as build.name for build in selectInfo.buildings" ng-model="selectInfo.building">
+                    <option value="">楼栋</option>
+                </select>
+            </div>
+        </div>
+        <!--寝室类型-->
+        <div class="col-fix-3">
+            <div class="form-group">
+                <select class="form-control"  ng-options="r.id as r.typeName for r in selectInfo.roomTypes" ng-model="selectInfo.roomType">
+                    <option value="">寝室类型</option>
+                </select>
+            </div>
+        </div>
+        <!--寝室-->
+        <div class="col-fix-3">
+            <div class="form-group">
+                <yn-select class="" theme="multiChoiceSearch" option='{repeat:selectInfo.roomNums,property:"name",disableSearch:false,defaultPreInfo:"寝室"}' model="selectInfo.roomIdSet"></yn-select>
+            </div>
+        </div>
+        <div class="col-fix-3">
+            <div class="form-group">
+                <input type="text" class="form-control" name="" id="" value="" placeholder="输入姓名/学号" ng-model="selectInfo.queryValue">
+            </div>
+        </div>
+        <div class="col-fix-3">
+            <div class="form-group">
+                <button class="btn theme" ng-click="refreshGird();selectInfo.selectFlag = false;soptions.selectFlag = false"><i class="fa fa-search"></i> 查询</button>
+            </div>
+        </div>
+    </div>
+    <div class="checked-all" ng-if="!soptions.useSingleChoice" ng-init="selectInfo.selectFlag = false">
+        <label><input type="checkbox" ng-model="selectInfo.selectFlag" ng-true-value="true" ng-false-value="false" ng-change="selectAllDatas(selectInfo.selectFlag)">选择全部查询结果</label>
+    </div>
+</div>

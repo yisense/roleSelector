@@ -1,0 +1,41 @@
+<div class="cz-selector">
+    <!--顶部导航条-->
+    <header-bar hoptions="options"></header-bar>
+    <div class="globle-selector selector_user y-selector">
+        <div class="gs-body">
+            <div class="gs-main">
+                <div class="gs-main-content">
+                    <div class="selector-middle no-marginr">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row fix margin-top-10" ng-if="options.aTeacherNavBar.length > 0 || options.aStudentNavBar.length > 0">
+                                    <!--左侧查询条件栏-->
+                                    <ta-left-side toptions="options" ng-if="options.activeBar.barId === '1' && options.activeBar.type === '1'"></ta-left-side>
+                                    <tb-left-side toptions="options" ng-if="options.activeBar.barId === '2' && options.activeBar.type === '1'"></tb-left-side>
+                                    <tc-left-side toptions="options" ng-if="options.activeBar.barId === '3' && options.activeBar.type === '1'"></tc-left-side>
+                                    <td-left-side toptions="options" ng-if="options.activeBar.barId === '4' && options.activeBar.type === '1'"></td-left-side>
+                                    <te-left-side toptions="options" ng-if="options.activeBar.barId === '5' && options.activeBar.type === '1'"></te-left-side>
+                                    <tf-left-side toptions="options" ng-if="options.activeBar.barId === '6' && options.activeBar.type === '1'"></tf-left-side>
+                                    <sa-left-side soptions="options" ng-if="options.activeBar.barId === '1' && options.activeBar.type === '2'"></sa-left-side>
+                                    <sb-left-side soptions="options" ng-if="options.activeBar.barId === '2' && options.activeBar.type === '2'"></sb-left-side>
+                                    <sc-left-side soptions="options" ng-if="options.activeBar.barId === '3' && options.activeBar.type === '2'"></sc-left-side>
+                                    <sd-left-side soptions="options" ng-if="options.activeBar.barId === '4' && options.activeBar.type === '2'"></sd-left-side>
+                                    <!--中间grid-->
+                                    <div class="col-fix-auto">
+                                        <div class="row">
+                                            <div class="col-md-12" id="ceshi">
+                                                <div yn-data-grid-mini grid-options="gridOption"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--右侧已选择条目栏-->
+            <right-side roptions="options"></right-side>
+        </div>
+    </div>
+</div>

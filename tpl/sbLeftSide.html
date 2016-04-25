@@ -1,0 +1,38 @@
+<div class="col-fix-7 rightfluid">
+    <div class="form-horizontal">
+        <!--学期-->
+        <div class="col-fix-3">
+            <div class="form-group">
+                <select class="form-control"  ng-options="term.id as term.name for term in selectInfo.terms" ng-model="selectInfo.termId">
+                    <option value="">学期</option>
+                </select>
+            </div>
+        </div>
+        <!--课程-->
+        <div class="col-fix-3">
+            <div class="form-group">
+                <yn-select class="" theme="multiChoiceSearch" option='{repeat:selectInfo.courses,property:"courseName",disableSearch:false,defaultPreInfo:"课程"}' model="selectInfo.courseIds"></yn-select>
+            </div>
+        </div>
+        <!--教学班-->
+        <div class="col-fix-3">
+            <div class="form-group">
+                <yn-select class="" theme="multiChoiceSearch" option='{repeat:selectInfo.adminClasses,property:"name",disableSearch:false,defaultPreInfo:"教学班"}' model="selectInfo.adminClassIds"></yn-select>
+            </div>
+        </div>
+        <!--姓名、学号-->
+        <div class="col-fix-3">
+            <div class="form-group">
+                <input type="text" class="form-control" name="" id="" value="" placeholder="输入姓名/学号" ng-model="selectInfo.queryValue">
+            </div>
+        </div>
+        <div class="col-fix-3">
+            <div class="form-group">
+                <button class="btn theme" ng-click="refreshGird();selectInfo.selectFlag = false;soptions.selectFlag = false"><i class="fa fa-search"></i> 查询</button>
+            </div>
+        </div>
+    </div>
+    <div class="checked-all" ng-if="!soptions.useSingleChoice" ng-init="selectInfo.selectFlag = false">
+        <label><input type="checkbox" ng-model="selectInfo.selectFlag" ng-true-value="true" ng-false-value="false" ng-change="selectAllDatas(selectInfo.selectFlag)">选择全部查询结果</label>
+    </div>
+</div>
